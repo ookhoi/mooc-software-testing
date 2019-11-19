@@ -36,7 +36,7 @@ dependencies {
 }
 
 // Define the main class for the application
-mainClassName = 'mooc-software-testing.App'
+mainClassName = project.hasProperty("mainClass") ? getProperty("mainClass") : "NULL"
 
 task myjavadoc(type: Javadoc) {
     description 'Create Javadoc'
