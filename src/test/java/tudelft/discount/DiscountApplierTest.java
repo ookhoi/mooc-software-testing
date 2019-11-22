@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class DiscountApplierTest {
 
     @Test
-    @DisplayName("Category Home")
+    @DisplayName("Category Home, Verify Bal Price")
     void verifyBalPrice() {
         double price = 0.0;
         Product bal = new Product("Bal", 10.0, "HOME");
@@ -25,11 +25,11 @@ public class DiscountApplierTest {
                     price = product.getPrice();
             }
         }
-        assertEquals(9.0, price);
+        assertEquals(9.0, price, "Category HOME product: 10% discount on '10.0'");
     }
 
     @Test
-    @DisplayName("Category Business")
+    @DisplayName("Category Business, Verify Pen Price")
     void verifyPenPrice() {
         double price = 0.0;
         Product bal = new Product("Bal", 10.0, "HOME");
@@ -44,7 +44,7 @@ public class DiscountApplierTest {
                     price = product.getPrice();
             }
         }
-        assertEquals(11.0, price);
+        assertEquals(11.0, price, "Category BUSINESS product: 10% addition to '10.0'");
     }
 
 }
