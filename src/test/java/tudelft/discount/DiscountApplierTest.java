@@ -18,6 +18,7 @@ public class DiscountApplierTest {
         ProductDao mockPdao = mock(ProductDao.class);
         List products = Arrays.asList(bal, pen);
         when(mockPdao.all()).thenReturn(products);
+
         DiscountApplier discountApplier = new DiscountApplier(mockPdao);
         discountApplier.setNewPrices();
         for (Product product : mockPdao.all()) {
@@ -25,7 +26,9 @@ public class DiscountApplierTest {
                     price = product.getPrice();
             }
         }
-        assertEquals(9.0, price, "Category HOME product: 10% discount on '10.0'");
+
+        assertEquals(9.0, price,
+                "Category HOME product: 10% discount on '10.0'");
     }
 
     @Test
@@ -37,6 +40,7 @@ public class DiscountApplierTest {
         ProductDao mockPdao = mock(ProductDao.class);
         List products = Arrays.asList(bal, pen);
         when(mockPdao.all()).thenReturn(products);
+
         DiscountApplier discountApplier = new DiscountApplier(mockPdao);
         discountApplier.setNewPrices();
         for (Product product : mockPdao.all()) {
@@ -44,7 +48,9 @@ public class DiscountApplierTest {
                     price = product.getPrice();
             }
         }
-        assertEquals(11.0, price, "Category BUSINESS product: 10% addition to '10.0'");
+
+        assertEquals(11.0, price,
+                "Category BUSINESS product: 10% addition to '10.0'");
     }
 
 }
